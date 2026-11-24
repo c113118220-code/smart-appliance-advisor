@@ -1,116 +1,49 @@
 # 智慧家電門市提案系統（全國電子 Digital City）
 
+> 🔗 **系統線上展示網址**：[(https://nkust-smart-home-appliance.netlify.app/)]((https://nkust-smart-home-appliance.netlify.app/))
+
 ## 專案簡介
 
-專為實體門市顧問在 iPad 上使用的智慧家電提案系統，透過引導式問卷快速配對最適合顧客的家電套餐，並產生 QR Code 供顧客掃描查看互動式提案單。
+本專題為大學資訊管理／軟體工程課程之實務專案，專為實體門市顧問在平板或電腦上使用的智慧家電銷售提案系統（B2B2C）。透過 4 步驟引導式問卷快速配對最適合顧客的家電套餐，並即時產生專屬 QR Code 供顧客用手機掃描查看互動式提案單與家電尺寸報價。
 
-## 功能特色
+---
 
-- ✅ 4 步驟引導式問卷（族群、格局、生活需求、電器需求）
-- ✅ 智慧套餐推薦（階層式過濾 + 權重評分 + 品類平衡）
-- ✅ QR Code 提案分享（精簡編碼 + 模擬手機視角）
-- ✅ 商品資料庫管理（CRUD + 搜尋篩選）
-- ✅ 歷史提案紀錄查詢
-- ✅ 完整 RWD 支援（電腦/iPad/手機）
-- 🚧 3D 空間擬真模組（第二階段開發中）
+## 📋 作業 2：專案人員分工與時程規劃
 
-## 技術棧
+### 1. 小組成員與任務分配（一人小組）
 
-- **前端框架**: React 18 + TypeScript + Vite
-- **樣式方案**: Tailwind CSS（品牌主色 #E6007E）
-- **狀態管理**: Zustand
-- **資料持久化**: Dexie.js (IndexedDB)
-- **路由**: React Router v6
-- **圖示庫**: lucide-react
-- **QR Code**: qrcode.react
+| 組員 | 角色定位 | 負責工作項目 | 產出交付物 |
+| :--- | :--- | :--- | :--- |
+| **本專題作者**<br>*(C113118220林余柔)* | **專題開發者（一人獨立完成）** | • 系統需求訪談、問題分析與資料庫 ERD 正規化設計<br>• 前端介面設計（RWD 響應式版面與全國電子品牌識別色系）<br>• 4 步驟引導式問卷、商品 CRUD 管理與歷史提案查詢開發<br>• 階層式權重推薦演算法與 IndexedDB 本地資料庫建置<br>• B2C 跨裝置 QR Code 網址壓縮功能、系統測試與雲端部署<br>• 撰寫系統分析設計文件（UML 圖表、甘特圖、PERT/CPM 圖） | • 完整可運作之 Web 系統原始碼<br>• Netlify 線上展示網站<br>• `README.md`、`hw3.md`、`hw4.md` |
 
-## 安裝與執行
+### 2. 專題開發甘特圖（Gantt Chart）
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#E6007E", "primaryTextColor": "#FFFFFF", "primaryBorderColor": "#B30062", "sectionBkgColor": "#FFF0F7", "altSectionBkgColor": "#FFFFFF", "taskBkgColor": "#E6007E", "taskTextColor": "#FFFFFF", "taskTextOutsideColor": "#1E293B", "taskBorderColor": "#B30062", "gridColor": "#E2E8F0"}}}%%
+gantt
+    title 智慧家電門市提案系統 - 專題開發甘特圖
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
 
-```bash
-# 安裝相依套件
-npm install
+    section 第一階段：規劃與設計
+    A. 需求訪談與分析         :a1, 2026-09-01, 7d
+    B. UI 分鏡與 ERD 設計     :a2, after a1, 7d
 
-# 啟動開發伺服器
-npm run dev
+    section 第二階段：核心開發
+    C. 前端架構與問卷 UI      :b1, after a2, 10d
+    D. IndexedDB 資料庫建置   :b2, after a2, 8d
+    E. 推薦演算法實作         :b3, after b2, 7d
 
-# 建置生產版本
-npm run build
+    section 第三階段：功能整合
+    F. 套餐卡片與 QR Code     :c1, after b1, 7d
+    G. 商品 CRUD 與歷史紀錄   :c2, after b3, 7d
 
-# 預覽生產版本
-npm run preview
+    section 第四階段：測試部署
+    H. 跨裝置整合測試         :d1, after c1, 5d
+    I. 雲端部署與文件撰寫     :d2, after d1, 5d
 ```
 
-## 專案結構
+   
+   
 
-```
-src/
-├── components/          # UI 元件
-│   ├── Layout/         # 佈局元件（導覽列、頁尾）
-│   ├── UI/             # 共用 UI 元件（按鈕、卡片、Modal）
-│   ├── Proposal/       # 提案相關元件
-│   └── Appliance/      # 商品管理元件
-├── pages/              # 頁面元件
-├── services/           # 資料存取與推薦演算法
-├── stores/             # Zustand 狀態管理
-├── db/                 # Dexie 資料庫設定
-├── types/              # TypeScript 型別定義
-└── lib/                # 工具函式與常數
-```
 
-## 開發進度
 
-- [x] Task 1: 專案初始化與基礎架構建置
-- [x] Task 2: 建立 IndexedDB 資料庫與 Seed Data
-- [x] Task 3: 建立 Service Layer 與推薦演算法
-- [x] Task 4: 建立 Zustand 狀態管理與路由系統
-- [x] Task 5: 實作引導式問卷系統（4 步驟表單）
-- [x] Task 6: 實作套餐推薦結果頁與卡片展示
-- [x] Task 7: 實作 QR Code 生成與消費者提案單頁面
-- [x] Task 8: 實作商品資料庫管理頁面（CRUD）
-- [x] Task 9: 實作歷史提案紀錄查詢頁面
-- [x] Task 10: 優化 RWD 體驗與全域樣式精修
-- [x] Task 11: 資料庫重置功能與 Demo 情境準備
-- [x] Task 12: 文件撰寫與專案交付準備
-
-**開發狀態：** ✅ **已完成並交付**
-
-## 品牌色彩規範
-
-- **主品牌色**: #E6007E（全國電子洋紅）
-- **主品牌色 Hover**: #C00069
-- **背景色**: #FFFFFF（白色）、#F8FAFC（淺灰）
-- **文字色**: #1E293B（深炭灰）
-
-## 📚 完整文件
-
-### 使用者文件
-- 📖 [使用手冊](./USER_GUIDE.md) - 門市顧問操作指南
-- 📖 [Demo 指南](./DEMO_GUIDE.md) - 完整展示腳本
-
-### 技術文件
-- 📖 [開發者文件](./DEVELOPER.md) - 架構與技術說明
-- 📖 [API 文件](./API.md) - Service Layer 介面
-- 📖 [推薦演算法](./ALGORITHM.md) - 演算法詳細說明
-- 📖 [RWD 優化](./RWD_OPTIMIZATION.md) - 響應式設計說明
-
-### 部署文件
-- 📖 [部署指南](./DEPLOYMENT.md) - 生產環境部署步驟
-- 📖 [測試報告](./TEST_REPORT.md) - 功能與效能測試結果
-
-### 專案文件
-- 📖 [需求規格](./requirements.md) - 專案需求定義
-- 📖 [交付清單](./HANDOVER_CHECKLIST.md) - 專案交付確認
-
-## 瀏覽器支援
-
-- Chrome 90+
-- Safari 15+ (iOS)
-- Edge 90+
-
-## 授權
-
-MIT License
-
-## 聯絡資訊
-
-全國電子 Digital City 智慧家電館
