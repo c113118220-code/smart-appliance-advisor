@@ -17,30 +17,62 @@
 | **本專題作者**<br>*(C113118220林余柔)* | **專題開發者（一人獨立完成）** | • 系統需求訪談、問題分析與資料庫 ERD 正規化設計<br>• 前端介面設計（RWD 響應式版面與全國電子品牌識別色系）<br>• 4 步驟引導式問卷、商品 CRUD 管理與歷史提案查詢開發<br>• 階層式權重推薦演算法與 IndexedDB 本地資料庫建置<br>• B2C 跨裝置 QR Code 網址壓縮功能、系統測試與雲端部署<br>• 撰寫系統分析設計文件（UML 圖表、甘特圖、PERT/CPM 圖） | • 完整可運作之 Web 系統原始碼<br>• Netlify 線上展示網站<br>• `README.md`、`hw3.md`、`hw4.md` |
 
 ### 2. 專題開發甘特圖（Gantt Chart）
-
-```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#E6007E',
+    'primaryTextColor': '#FFFFFF',
+    'primaryBorderColor': '#B30062',
+    'lineColor': '#CBD5E1',
+    'sectionBkgColor': '#FFF0F7',
+    'altSectionBkgColor': '#FFFFFF',
+    'sectionBkgColor2': '#FCE7F3',
+    'taskBkgColor': '#E6007E',
+    'taskTextColor': '#FFFFFF',
+    'taskTextOutsideColor': '#1E293B',
+    'taskBorderColor': '#B30062',
+    'activeTaskBkgColor': '#FF339F',
+    'activeTaskBorderColor': '#E6007E',
+    'gridColor': '#E2E8F0',
+    'fontSize': '13px'
+  },
+  'gantt': {
+    'barHeight': 24,
+    'barGap': 6,
+    'topPadding': 50,
+    'leftPadding': 165,
+    'rightPadding': 60,
+    'gridLineStartPadding': 35,
+    'fontSize': 13,
+    'sectionFontSize': 14
+  }
+}}%%
 gantt
     title 智慧家電門市提案系統 - 專題開發甘特圖
     dateFormat  YYYY-MM-DD
     axisFormat  %m/%d
+    tickInterval 1week
 
     section 第一階段：規劃與設計
     A. 需求訪談與系統分析         :a1, 2026-09-01, 7d
-    B. UI 分鏡板與 ERD 資料庫設計   :a2, after a1, 7d
+    B. UI 分鏡與 ERD 資料庫設計   :a2, after a1, 7d
 
     section 第二階段：核心模組開發
-    C. 前端架構與 4 步驟問卷開發    :b1, after a2, 10d
-    D. IndexedDB 與家電資料建置    :b2, after a2, 8d
-    E. 階層式權重推薦演算法實作     :b3, after b2, 7d
+    C. 前端架構與 4 步驟問卷開發  :b1, after a2, 10d
+    D. IndexedDB 與家電資料建置   :b2, after a2, 8d
+    E. 階層式權重推薦演算法實作   :b3, after b2, 7d
 
     section 第三階段：整合與功能擴充
-    F. 三階套餐卡片與 QR Code 生成  :c1, after b1, 7d
+    F. 三階套餐卡片與 QR Code     :c1, after b1, 7d
     G. 商品 CRUD 與歷史紀錄查詢   :c2, after b3, 7d
 
     section 第四階段：測試與部署
-    H. 跨裝置整合測試與除錯         :d1, after c1, 5d
-    I. Netlify 雲端部署與文件撰寫   :d2, after d1, 5d
+    H. 跨裝置整合測試與除錯       :d1, after c1, 5d
+    I. Netlify 部署與文件撰寫     :d2, after d1, 5d
 
+
+   
+   
 
 
 
