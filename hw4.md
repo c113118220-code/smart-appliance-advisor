@@ -62,11 +62,11 @@ classDiagram
         +decodeFromUrl(queryString: string) Proposal
     }
 
-    CustomerProfile "1" --> "1..*" Proposal : 產生
-    Proposal "1" *-- "1" ProposalPackage : 包含選定方案
-    ProposalPackage "1" o-- "1..*" Appliance : 組合多款家電
-    RecommendationEngine ..> CustomerProfile : 讀取需求
-    RecommendationEngine ..> Appliance : 篩選與評分
+    CustomerProfile "1" --> "1..*" Proposal : "產生"
+    Proposal "1" *-- "1" ProposalPackage : "包含選定方案"
+    ProposalPackage "1" o-- "1..*" Appliance : "組合多款家電"
+    RecommendationEngine ..> CustomerProfile : "讀取需求"
+    RecommendationEngine ..> Appliance : "篩選與評分"
 ```
 ## 二、 循序圖(Sequence Diagrams)
 # 針對 UC-01：填寫需求問卷與智慧推薦運算
