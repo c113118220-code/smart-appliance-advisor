@@ -92,10 +92,6 @@ sequenceDiagram
     Engine->>Engine: 10. 空間尺寸過濾 & 痛點標籤加權計分
     Engine-->>WizardUI: 11. 回傳三階套餐 (經濟/智慧/旗艦)
     WizardUI-->>Advisor: 12. 渲染三階推薦套餐比較卡片
-
-    RecommendationEngine ..> ProposalPackage : 產出三階套餐
-    ApplianceService ..> Appliance : 管理持久化
-    ProposalService ..> Proposal : 儲存與解碼
 ```
 針對 UC-02 & UC-05：生成 QR Code 與顧客手機掃碼檢視
 ```mermaid
