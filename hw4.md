@@ -67,9 +67,10 @@ classDiagram
     ProposalPackage "1" o-- "1..*" Appliance : 組合多款家電
     RecommendationEngine ..> CustomerProfile : 讀取需求
     RecommendationEngine ..> Appliance : 篩選與評分
-end
+```
 ## 二、 循序圖(Sequence Diagrams)
 # 針對 UC-01：填寫需求問卷與智慧推薦運算
+```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#FFF0F7", "primaryTextColor": "#1E293B", "primaryBorderColor": "#E6007E", "actorBorder": "#E6007E", "actorBkg": "#FFF0F7", "signalColor": "#334155"}}}%%
 sequenceDiagram
     actor Advisor as 門市銷售顧問
@@ -95,6 +96,7 @@ sequenceDiagram
     RecommendationEngine ..> ProposalPackage : 產出三階套餐
     ApplianceService ..> Appliance : 管理持久化
     ProposalService ..> Proposal : 儲存與解碼
+```
 # 針對 UC-02 & UC-05：生成 QR Code 與顧客手機掃碼檢視
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#FFF0F7", "primaryTextColor": "#1E293B", "primaryBorderColor": "#E6007E", "actorBorder": "#E6007E", "actorBkg": "#FFF0F7", "signalColor": "#334155"}}}%%
 sequenceDiagram
@@ -117,7 +119,9 @@ sequenceDiagram
     MobileUI->>PropSvc: 10. 請求解析 URL 參數 (decodeFromUrl)
     PropSvc-->>MobileUI: 11. 還原完整提案單與家電尺寸明細
     MobileUI-->>Customer: 12. 顯示手機版專屬智慧家電提案報表
+```
 #（針對 UC-03）：家電商品新增與維護 (CRUD)
+```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#FFF0F7", "primaryTextColor": "#1E293B", "primaryBorderColor": "#E6007E", "actorBorder": "#E6007E", "actorBkg": "#FFF0F7", "signalColor": "#334155"}}}%%
 sequenceDiagram
     actor Advisor as 門市銷售顧問
@@ -140,8 +144,10 @@ sequenceDiagram
         AppSvc-->>MgmtUI: 9. 通知重新載入最新商品列表
         MgmtUI-->>Advisor: 10. 關閉視窗並顯示最新家電清單
     end
+```
 ##三、 活動圖 (Activity Diagrams)
 #針對 UC-01：情境導向智慧推薦業務流程
+```mermaid
 flowchart TD
     Start([開始：進入智慧顧問系統]) --> Step1[步驟 1：選擇居住空間格局]
     Step1 --> Step2[步驟 2：勾選家庭成員組成]
@@ -161,7 +167,9 @@ flowchart TD
     style Start fill:#E6007E,color:#FFFFFF,stroke:#B30062
     style End fill:#E6007E,color:#FFFFFF,stroke:#B30062
     style CheckValid fill:#FFF0F7,stroke:#E6007E,stroke-width:2px
+```
 #針對 UC-02 & UC-05：B2B2C 跨裝置提案分享流程
+```mermaid
 flowchart TD
     Start([開始：顧問與顧客檢視推薦套餐]) --> SelectTier[選定其中一組最適合的套餐方案]
     SelectTier --> SaveHistory[系統自動將提案寫入本地歷史紀錄]
@@ -181,7 +189,9 @@ flowchart TD
     style Start fill:#E6007E,color:#FFFFFF,stroke:#B30062
     style End fill:#E6007E,color:#FFFFFF,stroke:#B30062
     style CanScan fill:#FFF0F7,stroke:#E6007E,stroke-width:2px
+```
 #針對 UC-03：門市家電商品資料庫維護流程
+```mermaid
 flowchart TD
     Start([開始：進入商品管理頁面]) --> LoadList[載入 IndexedDB 現有家電清單]
     LoadList --> ChooseAction{選擇操作類型}
@@ -203,6 +213,7 @@ flowchart TD
     ConfirmDel -- 否 --> End
     ConfirmDel -- 是 --> DeleteDB[從資料庫移除該筆家電紀錄]
     DeleteDB --> RefreshUI
+```
 
     style Start fill:#E6007E,color:#FFFFFF,stroke:#B30062
     style End fill:#E6007E,color:#FFFFFF,stroke:#B30062
