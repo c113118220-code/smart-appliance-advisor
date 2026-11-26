@@ -67,6 +67,7 @@ classDiagram
     ProposalPackage "1" o-- "1..*" Appliance : 組合多款家電
     RecommendationEngine ..> CustomerProfile : 讀取需求
     RecommendationEngine ..> Appliance : 篩選與評分
+end
 ## 二、 循序圖(Sequence Diagrams)
 # 針對 UC-01：填寫需求問卷與智慧推薦運算
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#FFF0F7", "primaryTextColor": "#1E293B", "primaryBorderColor": "#E6007E", "actorBorder": "#E6007E", "actorBkg": "#FFF0F7", "signalColor": "#334155"}}}%%
