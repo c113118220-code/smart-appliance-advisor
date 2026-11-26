@@ -98,6 +98,7 @@ sequenceDiagram
     ProposalService ..> Proposal : 儲存與解碼
 ```
 # 針對 UC-02 & UC-05：生成 QR Code 與顧客手機掃碼檢視
+```mermaid
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#FFF0F7", "primaryTextColor": "#1E293B", "primaryBorderColor": "#E6007E", "actorBorder": "#E6007E", "actorBkg": "#FFF0F7", "signalColor": "#334155"}}}%%
 sequenceDiagram
     actor Advisor as 門市銷售顧問
