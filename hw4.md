@@ -146,10 +146,10 @@ sequenceDiagram
 針對 UC-01：情境導向智慧推薦業務流程
 ```mermaid
 flowchart TD
-    Start([開始：進入智慧顧問系統]) --> Step1[步驟 1：選擇居住空間格局]
-    Step1 --> Step2[步驟 2：勾選家庭成員組成]
-    Step2 --> Step3[步驟 3：勾選居家生活痛點]
-    Step3 --> Step4[步驟 4：設定總預算上限]
+    Start([開始：進入智慧顧問系統]) --> Step1[步驟 1：勾選家庭成員組成]
+    Step1 --> Step2[步驟 2：選擇居住空間格局]
+    Step2 --> Step3[步驟 3：勾選居家生活核心需求]
+    Step3 --> Step4[步驟 4：選擇重視的電器特性]
     Step4 --> CheckValid{欄位驗證是否通過?}
     
     CheckValid -- 否 --> ShowErr[顯示紅色防呆提示訊息]
